@@ -1,0 +1,117 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif; /* Specifies a clean, common font */
+    line-height: 1.6; /* Improves readability by increasing space between lines */
+    color: #333; /* Dark gray for text for better contrast */
+    margin: 0; /* Removes default body margin */
+    padding: 0; /* Removes default body padding */
+    background-color: #f4f4f4; /* Light gray background for the page */
+}
+
+/* Page Layout - Constraining content width and positioning */
+main {
+    max-width: 960px; /* Sets a maximum width for your main content area */
+    margin: 40px auto; /* Adds 40px top/bottom margin and centers the block horizontally */
+    padding: 20px; /* Adds internal spacing around the content */
+    background-color: #fff; /* White background for the content area */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    text-align: left; /* Ensures text is left-aligned within the main container */
+}
+
+/* Header Styling */
+header {
+    background-color: #004d99; /* A shade of blue, representative of DOE */
+    color: #ffffff; /* White text for contrast */
+    padding: 20px 0;
+    text-align: center; /* Centers the header content */
+}
+
+header h1 {
+    margin: 0; /* Removes default margin from the heading */
+    padding-bottom: 10px;
+}
+
+nav ul {
+    list-style: none; /* Removes bullet points from navigation list */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Arranges navigation items horizontally */
+    justify-content: center; /* Centers navigation links */
+}
+
+nav ul li {
+    margin: 0 15px; /* Spacing between navigation items */
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none; /* Removes underline from links */
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline; /* Underline on hover for interactivity */
+}
+
+/* Section Styling */
+section {
+    margin-bottom: 30px; /* Space between sections */
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee; /* Light line to separate sections */
+}
+
+section:last-of-type {
+    border-bottom: none; /* No border for the last section */
+}
+
+h2 {
+    color: #004d99; /* Heading color matching the header */
+    border-bottom: 2px solid #ddd; /* Underline for section headings */
+    padding-bottom: 5px;
+    margin-top: 0;
+}
+
+/* Styling for the image with the class "my-styled-image" */
+.my-styled-image {
+    max-width: 50%; /* Ensures the image is never wider than its container */
+    height: auto;    /* Maintains the image's aspect ratio */
+    display: block;  /* Makes the image a block-level element, allowing margin auto for centering */
+    margin: 20px auto; /* Adds 20px top/bottom margin and centers the image horizontally */
+    border: 1px solid #ccc; /* Adds a light gray border around the image */
+    padding: 5px;    /* Adds some space between the image and its border */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+    border-radius: 8px; /* Slightly rounded corners */
+}
+
+.float-left-image {
+    float: left;
+    margin-right: 20px; /* Provides space between the image and the wrapping text */
+    margin-bottom: 10px; /* Space below the image */
+    max-width: 300px; /* Example size limit */
+    height: auto;
+}
+
+.inline-image {
+    vertical-align: middle; /* Aligns the image's middle with the middle of the text line */
+	max-width: 100px; /* Example size limit */
+    height: auto;
+
+    /* Other options: top, bottom, text-top, text-bottom, sub, super */
+}
+
+iframe { border: none; max-width: 100%; }
+
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #eee;
+    color: #666;
+    font-size: 0.9em;
+}
+
+/* Specific example for bold text using CSS */
+.bold-text {
+    font-weight: bold;
+}
