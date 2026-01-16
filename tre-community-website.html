@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRE Community of Practice</title>
+    <style>
+        /* Modern CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* Header Styling */
+        header {
+            background: rgba(0, 77, 153, 0.95);
+            backdrop-filter: blur(10px);
+            color: #ffffff;
+            padding: 30px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 6px;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 40px 20px;
+        }
+
+        .content-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            color: #004d99;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            font-size: 1.8rem;
+        }
+
+        p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        ul {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        /* Activities Section */
+        .activity-item {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .activity-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .activity-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 15px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .inline-logo {
+            vertical-align: middle;
+            max-height: 30px;
+            margin-right: 10px;
+        }
+
+        /* Contact Form */
+        .contact-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-container h2 {
+            color: #004d99;
+            border: none;
+            margin-bottom: 10px;
+        }
+
+        .contact-container p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 14px 40px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        /* Admin Panel */
+        .admin-panel {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        .admin-panel h3 {
+            color: #004d99;
+            margin-bottom: 20px;
+        }
+
+        .submission-item {
+            background: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #667eea;
+        }
+
+        .submission-item p {
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .submission-item strong {
+            color: #004d99;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .content-card {
+                padding: 20px;
+            }
+
+            .contact-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Trusted Research Environment Community of Practice</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About TRE</a></li>
+                <li><a href="#activities">Activities</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about" class="content-card">
+            <h2>About the TRE Community of Practice (CoP)</h2>
+            <p>We explore the multifaceted aspects of managing risk for research projects involving sensitive data and AI models which depend deeply on supercomputing infrastructures. This risk spectrum spans traditional technical cyber controls as well as policy and sociological (including human factors) risks.</p>
+            
+            <p>In the context of multi-facility or multi-institutional workflows, our goal is to advance progress in developing secure and trustworthy infrastructures for AI and integrated science. We seek to understand trustworthiness in supercomputing environments from both technical and socio-technical perspectives. Outcomes include building a community of practice across diverse stakeholders for managing risk for integrated science and AI workflows.</p>
+            
+            <p>Three intertwined challenges emerge as we advance this vision for IRI and AmSC:</p>
+            <ul>
+                <li>Technological</li>
+                <li>Policy</li>
+                <li>Sociological</li>
+            </ul>
+            
+            <p>With the rise of AI and the increasing use of sensitive data for training models, our goal is to build a community of practice that will advance a secure and trusted research environment (TRE) that addresses challenges in all three domains. How do we best achieve a TRE that is transparent, reproducible, ethical, secure, worthwhile, and collaborative, with clear data provenance and assurance? How might trust be rightfully earned and retained through modern workflows through managed risk and secure governance?</p>
+        </section>
+
+        <section id="activities" class="content-card">
+            <h2>Our Activities</h2>
+            
+            <div class="activity-item">
+                <h3>🎤 Birds of a Feather (BoF), Supercomputing 25</h3>
+                <p><strong>Speakers:</strong> Sadaf Alam (Bristol), Debbie Bard (NERSC), Arjun Shankar (ORNL), Verónica Melesse Vergara (ORNL), Aleksi Kallio (CSC), Jason Haga (NAIST), Jeremy Crampton (ASCR)</p>
+                <p><a href="https://sc25.conference-program.com/presentation/?id=bof223&sess=sess415" target="_blank" style="color: #667eea; font-weight: 600;">View Session Details →</a></p>
+            </div>
+
+            <div class="activity-item">
+                <h3>🌐 BoF at ISC High Performance Computing</h3>
+                <p><a href="https://isc-hpc.com/" target="_blank" style="color: #667eea; font-weight: 600;">Learn More →</a></p>
+            </div>
+
+            <div class="activity-item">
+                <h3>💻 BoF at PEARC</h3>
+                <p>Practice and Experience in Advanced Research Computing</p>
+            </div>
+
+            <p style="margin-top: 30px; padding: 20px; background: #e8f4f8; border-radius: 8px; border-left: 4px solid #667eea;">
+                <strong>Want to get involved?</strong> Would you like to help, or to be included in a TRE BoF at an upcoming conference? Please contact us using the form below!
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <section id="contact" class="contact-section">
+            <div class="contact-container">
+                <h2>Contact Us</h2>
+                <p>Please use the form below to get in touch with us.</p>
+
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="affiliation">Affiliation/Organization</label>
+                        <input type="text" id="affiliation" name="affiliation">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="interest">Area of Interest *</label>
+                        <select id="interest" name="interest" required>
+                            <option value="">Select an option</option>
+                            <option value="join-cop">Join the Community of Practice</option>
+                            <option value="bof-participation">BoF Participation</option>
+                            <option value="collaboration">Research Collaboration</option>
+                            <option value="resources">Access Resources</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+
+                    <button type="submit" id="submitBtn">Send Message</button>
+
+                    <div class="success-message" id="successMessage">
+                        Thank you! Your message has been sent successfully.
+                    </div>
+
+                    <div class="error-message" id="errorMessage">
+                        Sorry, there was an error sending your message. Please try again.
+                    </div>
+                </form>
+
+                <!-- Admin Panel (Toggle visibility as needed) -->
+                <div class="admin-panel" id="adminPanel" style="display: none;">
+                    <h3>📬 Submissions</h3>
+                    <button onclick="toggleAdmin()" style="margin-bottom: 20px; background: #666;">Hide Submissions</button>
+                    <div id="submissionsList"></div>
+                </div>
+
+                <button onclick="toggleAdmin()" style="margin-top: 30px; background: #666;">View Submissions (Admin)</button>
+            </div>
+
+            <p style="margin-top: 40px; color: rgba(255, 255, 255, 0.8);">We look forward to hearing from you!</p>
+        </section>
+    </footer>
+
+    <script>
+        // Form submission handler with persistent storage
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const successMsg = document.getElementById('successMessage');
+            const errorMsg = document.getElementById('errorMessage');
+            
+            // Hide previous messages
+            successMsg.style.display = 'none';
+            errorMsg.style.display = 'none';
+            
+            // Disable button during submission
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            
+            try {
+                // Collect form data
+                const formData = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    affiliation: document.getElementById('affiliation').value,
+                    interest: document.getElementById('interest').value,
+                    message: document.getElementById('message').value,
+                    timestamp: new Date().toISOString()
+                };
+                
+                // Generate unique ID for submission
+                const submissionId = 'submission_' + Date.now();
+                
+                // Store in persistent storage
+                await window.storage.set(submissionId, JSON.stringify(formData), true);
+                
+                // Show success message
+                successMsg.style.display = 'block';
+                
+                // Reset form
+                document.getElementById('contactForm').reset();
+                
+                // Scroll to success message
+                successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                
+            } catch (error) {
+                console.error('Submission error:', error);
+                errorMsg.style.display = 'block';
+            } finally {
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+            }
+        });
+
+        // Admin panel toggle
+        async function toggleAdmin() {
+            const adminPanel = document.getElementById('adminPanel');
+            
+            if (adminPanel.style.display === 'none') {
+                adminPanel.style.display = 'block';
+                await loadSubmissions();
+            } else {
+                adminPanel.style.display = 'none';
+            }
+        }
+
+        // Load submissions from storage
+        async function loadSubmissions() {
+            const submissionsList = document.getElementById('submissionsList');
+            submissionsList.innerHTML = '<p>Loading submissions...</p>';
+            
+            try {
+                // List all submissions
+                const result = await window.storage.list('submission_', true);
+                
+                if (!result || !result.keys || result.keys.length === 0) {
+                    submissionsList.innerHTML = '<p>No submissions yet.</p>';
+                    return;
+                }
+                
+                // Fetch and display each submission
+                let submissionsHTML = '';
+                for (const key of result.keys) {
+                    try {
+                        const data = await window.storage.get(key, true);
+                        if (data && data.value) {
+                            const submission = JSON.parse(data.value);
+                            const date = new Date(submission.timestamp).toLocaleString();
+                            
+                            submissionsHTML += `
+                                <div class="submission-item">
+                                    <p><strong>Name:</strong> ${submission.name}</p>
+                                    <p><strong>Email:</strong> ${submission.email}</p>
+                                    <p><strong>Affiliation:</strong> ${submission.affiliation || 'N/A'}</p>
+                                    <p><strong>Interest:</strong> ${submission.interest}</p>
+                                    <p><strong>Message:</strong> ${submission.message}</p>
+                                    <p><strong>Date:</strong> ${date}</p>
+                                </div>
+                            `;
+                        }
+                    } catch (err) {
+                        console.error('Error loading submission:', err);
+                    }
+                }
+                
+                submissionsList.innerHTML = submissionsHTML || '<p>No submissions found.</p>';
+                
+            } catch (error) {
+                console.error('Error loading submissions:', error);
+                submissionsList.innerHTML = '<p>Error loading submissions.</p>';
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
